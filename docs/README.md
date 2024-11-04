@@ -8,5 +8,5 @@ lässt sich im nächsten Schritt noch weiter optimieren und "aufräumen".
 
 ## Todo
 
-- File-Reader und -Writer in eigene Klasse überführen
+- File-Reader und -Writer in eigene Klasse überführen ✅
 - Print-Helper implementieren
