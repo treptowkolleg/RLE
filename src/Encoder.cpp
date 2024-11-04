@@ -9,7 +9,7 @@
 using namespace std;
 
 /**
- *
+ * Encode or decode data using the RLE-algorithm.
  * @param buffer data to be encoded or decoded
  */
 Encoder::Encoder(const vector<unsigned char>&  buffer) {
