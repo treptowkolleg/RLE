@@ -15,8 +15,8 @@ int main(const int argc, const char **argv) {
     }
 
     // Schritt 1: Daten einlesen
-    FileSystem inputFile;
-    const vector<unsigned char> inputData = inputFile.read(argv[2]);
+    FileSystem inputFile(argv[2]);
+    const vector<unsigned char> inputData = inputFile.read();
 
     // Schritt 2: Daten de- oder encodieren
     vector<unsigned char> encoded_data;
@@ -36,8 +36,8 @@ int main(const int argc, const char **argv) {
     }
 
     // Schritt 3: Ausgabe schreiben
-    FileSystem outputFile;
-    outputFile.write(argv[3], encoded_data);
+    FileSystem outputFile(argv[3]);
+    outputFile.write(encoded_data);
 
     cout << argv[2] << " wurde erfolgreich mit " << argv[1] << " nach " << argv[3] <<  " konvertiert." << endl;
     return 0;

@@ -7,7 +7,9 @@
 #include <iostream>
 #include <vector>
 
-FileSystem::FileSystem() = default;
+FileSystem::FileSystem(const string& file) {
+    this->filename = file;
+};
 
 bool FileSystem::open(const string& file, const string& mode) {
     this->file = fopen(file.c_str(), mode.c_str());
@@ -17,9 +19,9 @@ bool FileSystem::open(const string& file, const string& mode) {
     return true;
 }
 
-vector<unsigned char> FileSystem::read(const string& file) {
+vector<unsigned char> FileSystem::read() {
 
-    if(!this->open(file, "rb")) {
+    if(!this->open(this->filename, "rb")) {
         cerr << "Fehler beim Öffnen der Eingabedatei!" << endl;
         exit(23);
     }
@@ -36,9 +38,9 @@ vector<unsigned char> FileSystem::read(const string& file) {
     return buffer;
 }
 
-void FileSystem::write(const string& file, const vector<unsigned char>& data) {
+void FileSystem::write(const vector<unsigned char>& data) {
 
-    if(!this->open(file, "wb")) {
+    if(!this->open(this->filename, "wb")) {
         cerr << "Fehler beim Öffnen der Ausgabedatei!" << endl;
         exit(5);
     }

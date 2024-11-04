@@ -11,15 +11,16 @@ using namespace std;
 
 class FileSystem {
     private:
+    string filename;
     FILE* file{};
     bool open(const string& file, const string& mode);
     void close() const;
 
     public:
-    FileSystem();
+    FileSystem(const string& file);
 
-    vector<unsigned char> read(const string& file);
-    void write(const string& file, const vector<unsigned char>& data);
+    vector<unsigned char> read();
+    void write(const vector<unsigned char>& data);
 
 };
 
