@@ -2,7 +2,7 @@
 // Created by BenjaminWagner on 04.11.2024.
 //
 
-#include "encoder.h"
+#include "Encoder.h"
 
 #include <vector>
 

@@ -2,7 +2,7 @@
 #include <cstdio>
 #include <iostream>
 
-#include "src/encoder.h"
+#include "src/Encoder.h"
 #include "src/FileSystem.h"
 
 using namespace std;
@@ -21,14 +21,14 @@ int main(const int argc, const char **argv) {
     const Encoder encoder(inputFile.read());
 
     // Schritt 2: Daten de- oder encodieren
-    vector<unsigned char> encoded_data;
+    vector<unsigned char> encodedData;
 
     // Aktion zuweisen
     const string command = argv[1];
     if(command == "e") {
-        encoded_data = encoder.rle_encode();
+        encodedData = encoder.rle_encode();
     } else if(command == "d") {
-        encoded_data = encoder.rle_decode();
+        encodedData = encoder.rle_decode();
     } else {
         printf("Der Befehl '%s' ist nicht definiert.\nNutzen Sie 'e' zum Enkodieren oder 'd' zum Dekodieren.\n",argv[1]);
         return 11;
@@ -36,7 +36,7 @@ int main(const int argc, const char **argv) {
 
     // Schritt 3: Ausgabe schreiben
     FileSystem outputFile(argv[3]);
-    outputFile.write(encoded_data);
+    outputFile.write(encodedData);
 
     cout << argv[2] << " wurde erfolgreich mit " << argv[1] << " nach " << argv[3] <<  " konvertiert." << endl;
     return 0;
