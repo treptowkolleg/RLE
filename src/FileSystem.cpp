@@ -7,10 +7,20 @@
 #include <iostream>
 #include <vector>
 
+/**
+ * handles file reading or writing data.
+ * @param file to be handled
+ */
 FileSystem::FileSystem(const string& file) {
     this->filename = file;
 };
 
+/**
+ *
+ * @param file file to be opened
+ * @param mode in wich file is being handled
+ * @return
+ */
 bool FileSystem::open(const string& file, const string& mode) {
     this->file = fopen(file.c_str(), mode.c_str());
     if (!this->file) {
@@ -19,6 +29,10 @@ bool FileSystem::open(const string& file, const string& mode) {
     return true;
 }
 
+/**
+ * Returns data from the given input file.
+ * @return file content
+ */
 vector<unsigned char> FileSystem::read() {
 
     if(!this->open(this->filename, "rb")) {
@@ -38,6 +52,10 @@ vector<unsigned char> FileSystem::read() {
     return buffer;
 }
 
+/**
+ * Writes new file to the designated path with given data.
+ * @param data to be written to the output file
+ */
 void FileSystem::write(const vector<unsigned char>& data) {
 
     if(!this->open(this->filename, "wb")) {
@@ -53,6 +71,9 @@ void FileSystem::write(const vector<unsigned char>& data) {
     close();
 }
 
+/**
+ * closes current handled file
+ */
 void FileSystem::close() const {
     fclose(this->file);
 }

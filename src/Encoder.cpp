@@ -8,10 +8,18 @@
 
 using namespace std;
 
+/**
+ *
+ * @param buffer data to be encoded or decoded
+ */
 Encoder::Encoder(const vector<unsigned char>&  buffer) {
     this->buffer = buffer;
 };
 
+/**
+ * encode data with RLE-algorithm
+ * @return encoded data
+ */
 vector<unsigned char> Encoder::rle_encode() const {
     vector<unsigned char> encoded;
 
@@ -38,6 +46,10 @@ vector<unsigned char> Encoder::rle_encode() const {
     return encoded;
 }
 
+/**
+ * decode data with RLE-algorithm
+ * @return decoded data
+ */
 vector<unsigned char> Encoder::rle_decode() const {
     vector<unsigned char> decoded;
 
