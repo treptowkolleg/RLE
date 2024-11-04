@@ -10,7 +10,7 @@
 using namespace std;
 
 class FileSystem {
-    private:
+
     string filename;
     FILE* file{};
     bool open(const string& file, const string& mode);
