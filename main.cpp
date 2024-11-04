@@ -14,15 +14,14 @@ int main(const int argc, const char **argv) {
         return 42;
     }
 
-    // Schritt 1: Daten einlesen
+    // Schritt 1: Input-Datei zuweisen
     FileSystem inputFile(argv[2]);
-    const vector<unsigned char> inputData = inputFile.read();
+
+    // Encoder instantiieren und Daten einlesen
+    const Encoder encoder(inputFile.read());
 
     // Schritt 2: Daten de- oder encodieren
     vector<unsigned char> encoded_data;
-
-    // Encoder instantiieren
-    const Encoder encoder(inputData);
 
     // Aktion zuweisen
     const string command = argv[1];
