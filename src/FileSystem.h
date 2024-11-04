@@ -17,7 +17,7 @@ class FileSystem {
     void close() const;
 
     public:
-    FileSystem(const string& file);
+    explicit FileSystem(const string& file);
 
     vector<unsigned char> read();
     void write(const vector<unsigned char>& data);
