@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include "src/encoder.h"
+#include "src/FileSystem.h"
 
 using namespace std;
 
@@ -12,32 +13,19 @@ int main(const int argc, const char **argv) {
         printf("Usage:\n %s [e|d] [INPUTFILE] [OUTPUTFILE]\n",argv[0]);
         return 42;
     }
-    
-    // Schritt 1: Auslesen
-    FILE* input_file = fopen(argv[2], "rb");
-    if (!input_file) {
-        cerr << "Fehler beim Öffnen der Eingabedatei!" << endl;
-        return 23;
-    }
 
-    vector<unsigned char> buffer;
-    unsigned char temp[4096]; // Temporärer Puffer
-    size_t bytes_read;
-
-    // Buffer beschreiben
-    while ((bytes_read = fread(temp, sizeof(unsigned char), sizeof(temp), input_file)) > 0) {
-        buffer.insert(buffer.end(), temp, temp + bytes_read);
-    }
-
-    fclose(input_file); // Input-Datei schließen
+    // Schritt 1: Daten einlesen
+    FileSystem inputFile;
+    const vector<unsigned char> inputData = inputFile.read(argv[2]);
 
     // Schritt 2: Daten de- oder encodieren
     vector<unsigned char> encoded_data;
 
-    const Encoder encoder(buffer);  // Encoder instantiieren
+    // Encoder instantiieren
+    const Encoder encoder(inputData);
 
+    // Aktion zuweisen
     const string command = argv[1];
-
     if(command == "e") {
         encoded_data = encoder.rle_encode();
     } else if(command == "d") {
@@ -48,18 +36,8 @@ int main(const int argc, const char **argv) {
     }
 
     // Schritt 3: Ausgabe schreiben
-    FILE* output_file = fopen(argv[3], "wb");
-    if (!output_file) {
-        cerr << "Fehler beim Öffnen der Ausgabedatei!" << endl;
-        return 5;
-    }
-
-    const size_t bytes_written = fwrite(encoded_data.data(), sizeof(unsigned char), encoded_data.size(), output_file);
-    if (bytes_written != encoded_data.size()) {
-        cerr << "Fehler beim Schreiben in die Ausgabedatei!" << endl;
-    }
-
-    fclose(output_file); // Output-Datei schließen
+    FileSystem outputFile;
+    outputFile.write(argv[3], encoded_data);
 
     cout << argv[2] << " wurde erfolgreich mit " << argv[1] << " nach " << argv[3] <<  " konvertiert." << endl;
     return 0;
