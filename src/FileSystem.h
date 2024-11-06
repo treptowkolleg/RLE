@@ -22,7 +22,7 @@ class FileSystem {
 
     vector<unsigned char> read();
     void write(const vector<unsigned char>& data);
-    bool fileExists(const string& file);
+    bool isReadable(const string& file);
     bool isWritable(const string& file);
 
 };

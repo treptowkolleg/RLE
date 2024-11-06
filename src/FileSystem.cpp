@@ -73,7 +73,7 @@ void FileSystem::write(const vector<unsigned char>& data) {
     close();
 }
 
-bool FileSystem::fileExists(const string& file) {
+bool FileSystem::isReadable(const string& file) {
     if(open(file,"rb")) {
         close();
         this->filename = file;

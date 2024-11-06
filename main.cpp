@@ -26,7 +26,7 @@ int main(const int argc, const char **argv) {
     while (true) {
         Out::print("Input-Datei angeben: ");
         getline(cin, inputFileName);
-        if(inputFile.fileExists(inputFileName)) {
+        if(inputFile.isReadable(inputFileName)) {
             Out::printLn("Datei gefunden!",FG_LIGHT_CYAN);
             Out::printLn("");
             encoder.setData(inputFile.read());
