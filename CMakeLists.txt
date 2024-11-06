@@ -15,4 +15,6 @@ add_executable(RLE main.cpp
         src/System/Out.cpp
         src/System/Out.h
         src/System/In.cpp
-        src/System/In.h)
+        src/System/In.h
+        src/System/System.cpp
+        src/System/System.h)
