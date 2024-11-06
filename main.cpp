@@ -34,8 +34,7 @@ int main(const int argc, const char **argv) {
     }
 
     while (true) {
-        Out::print("[d]ecodieren oder [e]ncodieren: ");
-        getline(cin, action);
+        In::readLine(action, "[d]ecodieren oder [e]ncodieren: ");
         if(action == "e") {
             encodedData = encoder.rle_encode();
             break;

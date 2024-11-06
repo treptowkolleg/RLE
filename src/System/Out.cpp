@@ -26,8 +26,7 @@ void Out::printHeading(const string &text, const Color &color, const Color &back
 }
 
 void Out::generateFrame(const string &text, const string &frameChar, const int &whitespace, const Color &color, const Color &background) {
-    string horizontalLine;
-    string whitespaceLine;
+    string horizontalLine, whitespaceLine;
     for(int i = 1; i <= strlen(text.c_str()) + 2*whitespace+2; i++) horizontalLine += frameChar;
     for(int i = 1; i <= whitespace; i++) whitespaceLine += " ";
     printLn(horizontalLine, color, background);
