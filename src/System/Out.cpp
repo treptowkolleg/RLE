@@ -39,6 +39,11 @@ void Out::clear() {
     printf("\033[2J\033[1;1H");
 }
 
+void Out::hideCursor() {
+    printf("\033[?25l");
+}
+
+
 string Out::setColor(const Color& color) {
     return  "\033[" + color + "m";
 }
