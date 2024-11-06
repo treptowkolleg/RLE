@@ -14,13 +14,16 @@ class FileSystem {
     string filename;
     FILE* file{};
     bool open(const string& file, const string& mode);
-    void close() const;
+    void close();
 
     public:
+    FileSystem() = default;
     explicit FileSystem(const string& file);
 
     vector<unsigned char> read();
     void write(const vector<unsigned char>& data);
+    bool fileExists(const string& file);
+    bool isWritable(const string& file);
 
 };
 

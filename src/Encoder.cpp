@@ -12,9 +12,13 @@ using namespace std;
  * Encode or decode data using the RLE-algorithm.
  * @param buffer data to be encoded or decoded
  */
-Encoder::Encoder(const vector<unsigned char>&  buffer) {
+Encoder::Encoder(const vector<unsigned char> &buffer) {
     this->buffer = buffer;
 };
+
+void Encoder::setData(const vector<unsigned char> &buffer) {
+    this->buffer = buffer;
+}
 
 /**
  * encode data with RLE-algorithm

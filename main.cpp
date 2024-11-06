@@ -2,43 +2,72 @@
 #include <cstdio>
 #include <iostream>
 
+
 #include "src/Encoder.h"
 #include "src/FileSystem.h"
+#include "src/System/Color.h"
+#include "src/System/Out.h"
 
 using namespace std;
 
 int main(const int argc, const char **argv) {
 
-    if (argc < 4) {
-        printf("Usage:\n %s [e|d] [INPUTFILE] [OUTPUTFILE]\n",argv[0]);
-        return 42;
-    }
-
-    // Schritt 1: Input-Datei zuweisen
-    FileSystem inputFile(argv[2]);
-
-    // Encoder instantiieren und Daten einlesen
-    const Encoder encoder(inputFile.read());
-
-    // Schritt 2: Daten de- oder encodieren
+    FileSystem inputFile;
+    FileSystem outputFile;
+    Encoder encoder;
     vector<unsigned char> encodedData;
+    string inputFileName;
+    string outputFileName;
+    string action;
 
-    // Aktion zuweisen
-    const string command = argv[1];
-    if(command == "e") {
-        encodedData = encoder.rle_encode();
-    } else if(command == "d") {
-        encodedData = encoder.rle_decode();
-    } else {
-        printf("Der Befehl '%s' ist nicht definiert.\nNutzen Sie 'e' zum Enkodieren oder 'd' zum Dekodieren.\n",argv[1]);
-        return 11;
+    Out::clear();
+    Out::printHeading("RLE-Konverter");
+
+    while (true) {
+        Out::print("Input-Datei angeben: ");
+        getline(cin, inputFileName);
+        if(inputFile.fileExists(inputFileName)) {
+            Out::printLn("Datei gefunden!",FG_LIGHT_CYAN);
+            Out::printLn("");
+            encoder.setData(inputFile.read());
+            break;
+        }
+        Out::printLn("Datei nicht gefunden!",FG_LIGHT_RED);
     }
 
-    // Schritt 3: Ausgabe schreiben
-    FileSystem outputFile(argv[3]);
-    outputFile.write(encodedData);
+    while (true) {
+        Out::print("[d]ecodieren oder [e]ncodieren: ");
+        getline(cin, action);
+        if(action == "e") {
+            encodedData = encoder.rle_encode();
+            break;
+        }
+        if(action == "d") {
+            encodedData = encoder.rle_decode();
+            break;
+        }
+        Out::printLn("Bitte [d] oder [e] angeben.", FG_LIGHT_RED);
+    }
+    Out::printLn("Daten erfolgreich konvertiert.");
+    Out::printLn("");
 
-    cout << argv[2] << " wurde erfolgreich mit " << argv[1] << " nach " << argv[3] <<  " konvertiert." << endl;
+    while (true) {
+        Out::print("Output-Datei angeben: ");
+        getline(cin, outputFileName);
+        if(outputFile.isWritable(outputFileName)) {
+            Out::printLn("Datei schreibbar!",FG_LIGHT_CYAN);
+            Out::printLn("");
+            outputFile.write(encodedData);
+            break;
+        }
+        Out::printLn("Datei nicht schreibbar!",FG_LIGHT_RED);
+    }
+
+    Out::print("Datei ");
+    Out::print(inputFileName, FG_LIGHT_CYAN);
+    Out::print(" wurde erfolgreich nach ");
+    Out::print(outputFileName, FG_LIGHT_CYAN);
+    Out::printLn(" konvertiert.");
     return 0;
 }
 

@@ -14,7 +14,9 @@ class Encoder {
     vector<unsigned char> buffer;
 
     public:
-    explicit Encoder(const vector<unsigned char>&  buffer);
+    Encoder() = default;
+    explicit Encoder(const vector<unsigned char> &buffer);
+    void setData(const vector<unsigned char> &buffer);
     vector<unsigned char> rle_encode() const;
     vector<unsigned char> rle_decode() const;
 
