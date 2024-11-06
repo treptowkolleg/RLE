@@ -70,7 +70,7 @@ int main(const int argc, const char **argv) {
     Out::print("Fenster wird geschlossen ");
     int i = 10;
     while (i > 0) {
-        this_thread::sleep_for(chrono::milliseconds(500));
+        this_thread::sleep_for(chrono::milliseconds(250));
         Out::print(".");
         i--;
     }
