@@ -24,7 +24,7 @@ void Encoder::setData(const vector<unsigned char> &buffer) {
  * encode data with RLE-algorithm
  * @return encoded data
  */
-vector<unsigned char> Encoder::rle_encode() const {
+vector<unsigned char> Encoder::rleEncode() const {
     vector<unsigned char> encoded;
 
 
@@ -54,7 +54,7 @@ vector<unsigned char> Encoder::rle_encode() const {
  * decode data with RLE-algorithm
  * @return decoded data
  */
-vector<unsigned char> Encoder::rle_decode() const {
+vector<unsigned char> Encoder::rleDecode() const {
     vector<unsigned char> decoded;
 
     for (size_t i = 0; i < buffer.size(); i += 2) {

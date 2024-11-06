@@ -15,7 +15,7 @@ int main(const int argc, const char **argv) {
     string inputFileName, outputFileName, action;
     FileSystem inputFile, outputFile;
     Encoder encoder;
-    vector<unsigned char> encodedData;
+    vector<unsigned char> data;
 
     Out::clear();
     Out::printHeading("RLE-Konverter");
@@ -36,11 +36,11 @@ int main(const int argc, const char **argv) {
     while (true) {
         In::readLine(action, "[d]ecodieren oder [e]ncodieren: ");
         if(action == "e") {
-            encodedData = encoder.rle_encode();
+            data = encoder.rleEncode();
             break;
         }
         if(action == "d") {
-            encodedData = encoder.rle_decode();
+            data = encoder.rleDecode();
             break;
         }
         Out::printLn("Bitte [d] oder [e] angeben.", FG_LIGHT_RED);
@@ -53,7 +53,7 @@ int main(const int argc, const char **argv) {
         if(!outputFileName.empty() and outputFile.isWritable(outputFileName)) {
             Out::printLn("Datei schreibbar!",FG_LIGHT_CYAN);
             Out::printLn("");
-            outputFile.write(encodedData);
+            outputFile.write(data);
             break;
         }
         Out::printLn("Datei nicht schreibbar!",FG_LIGHT_RED);
