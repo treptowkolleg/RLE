@@ -22,6 +22,7 @@ class Out {
     static void printHeading(const string &text, const Color &color = FG_LIGHT_CYAN, const Color &background = BG_NONE, const int &whitespace = 6);
     static string setColor(const Color& color);
     static void clear();
+    static void hideCursor();
 };
 
 
