@@ -20,6 +20,8 @@ int main(const int argc, const char **argv) {
     Out::clear();
     Out::printHeading("RLE-Konverter");
 
+    Out::printLn("Versuche, die mitgelieferte 'in.txt' zu encodieren.\n",FG_GREY);
+
     while (true) {
         In::readLine(inputFileName, "Input-Datei angeben: ");
         if(!inputFileName.empty() and inputFile.isReadable(inputFileName)) {
