@@ -7,6 +7,8 @@
 #include <iostream>
 #include <vector>
 
+#include "System/Out.h"
+
 /**
  * handles file reading or writing data.
  * @param file to be handled
@@ -71,11 +73,30 @@ void FileSystem::write(const vector<unsigned char>& data) {
     close();
 }
 
+bool FileSystem::isReadable(const string& file) {
+    if(open(file,"rb")) {
+        close();
+        this->filename = file;
+        return true;
+    }
+    return false;
+}
+
+bool FileSystem::isWritable(const string& file) {
+    if(open(file,"wb")) {
+        close();
+        this->filename = file;
+        return true;
+    }
+    return false;
+}
+
 /**
  * closes current handled file
  */
-void FileSystem::close() const {
+void FileSystem::close() {
     fclose(this->file);
+    this->file = nullptr;
 }
 
 

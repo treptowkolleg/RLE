@@ -9,4 +9,8 @@ add_executable(RLE main.cpp
         src/Filesystem.cpp
         src/Filesystem.h
         src/FileSystem.cpp
-        src/FileSystem.h)
+        src/FileSystem.h
+        lib/libusb.h
+        src/System/Color.h
+        src/System/Out.cpp
+        src/System/Out.h)
