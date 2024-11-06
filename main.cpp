@@ -56,7 +56,6 @@ int main(const int argc, const char **argv) {
         }
         Out::printLn("Datei nicht schreibbar!",FG_LIGHT_RED);
     }
-
     Out::print("Datei ");
     Out::print(inputFileName, FG_LIGHT_CYAN);
     Out::print(" wurde erfolgreich nach ");
