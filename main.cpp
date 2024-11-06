@@ -66,7 +66,7 @@ int main(const int argc, const char **argv) {
     Out::print(outputFileName, FG_LIGHT_CYAN);
     Out::printLn(" konvertiert.");
 
-    Out::print("Fenster wird geschlossen ");
+    Out::print("Programm wird beendet ");
     int i = 10;
     while (i > 0) {
         this_thread::sleep_for(chrono::milliseconds(250));
