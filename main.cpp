@@ -42,7 +42,7 @@ int main(const int argc, const char **argv) {
         }
         Out::printLn("Bitte [d] oder [e] angeben.", FG_LIGHT_RED);
     }
-    Out::printLn("Daten erfolgreich konvertiert.");
+    Out::printLn("Daten erfolgreich konvertiert.", FG_LIGHT_CYAN);
     Out::printLn("");
 
     while (true) {
