@@ -1,6 +1,4 @@
 
-#include <thread>
-
 #include "src/Encoder.h"
 #include "src/FileSystem.h"
 #include "src/System/Color.h"
