@@ -1,8 +1,5 @@
 
-#include <cstdio>
-#include <iostream>
 #include <thread>
-
 
 #include "src/Encoder.h"
 #include "src/FileSystem.h"
