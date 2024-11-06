@@ -1,6 +1,7 @@
 
 #include <cstdio>
 #include <iostream>
+#include <thread>
 
 
 #include "src/Encoder.h"
@@ -12,13 +13,10 @@ using namespace std;
 
 int main(const int argc, const char **argv) {
 
-    FileSystem inputFile;
-    FileSystem outputFile;
+    string inputFileName, outputFileName, action;
+    FileSystem inputFile, outputFile;
     Encoder encoder;
     vector<unsigned char> encodedData;
-    string inputFileName;
-    string outputFileName;
-    string action;
 
     Out::clear();
     Out::printHeading("RLE-Konverter");
@@ -68,6 +66,14 @@ int main(const int argc, const char **argv) {
     Out::print(" wurde erfolgreich nach ");
     Out::print(outputFileName, FG_LIGHT_CYAN);
     Out::printLn(" konvertiert.");
+
+    Out::print("Fenster wird geschlossen ");
+    int i = 10;
+    while (i > 0) {
+        this_thread::sleep_for(chrono::milliseconds(500));
+        Out::print(".");
+        i--;
+    }
     return 0;
 }
 
