@@ -7,6 +7,7 @@
 #include "src/Encoder.h"
 #include "src/FileSystem.h"
 #include "src/System/Color.h"
+#include "src/System/In.h"
 #include "src/System/Out.h"
 
 using namespace std;
@@ -22,9 +23,8 @@ int main(const int argc, const char **argv) {
     Out::printHeading("RLE-Konverter");
 
     while (true) {
-        Out::print("Input-Datei angeben: ");
-        getline(cin, inputFileName);
-        if(inputFile.isReadable(inputFileName)) {
+        In::readLine(inputFileName, "Input-Datei angeben: ");
+        if(!inputFileName.empty() and inputFile.isReadable(inputFileName)) {
             Out::printLn("Datei gefunden!",FG_LIGHT_CYAN);
             Out::printLn("");
             encoder.setData(inputFile.read());
@@ -50,9 +50,8 @@ int main(const int argc, const char **argv) {
     Out::printLn("");
 
     while (true) {
-        Out::print("Output-Datei angeben: ");
-        getline(cin, outputFileName);
-        if(outputFile.isWritable(outputFileName)) {
+        In::readLine(outputFileName,  "Output-Datei angeben: ");
+        if(!outputFileName.empty() and outputFile.isWritable(outputFileName)) {
             Out::printLn("Datei schreibbar!",FG_LIGHT_CYAN);
             Out::printLn("");
             outputFile.write(encodedData);

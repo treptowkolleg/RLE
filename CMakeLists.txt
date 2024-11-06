@@ -13,4 +13,6 @@ add_executable(RLE main.cpp
         lib/libusb.h
         src/System/Color.h
         src/System/Out.cpp
-        src/System/Out.h)
+        src/System/Out.h
+        src/System/In.cpp
+        src/System/In.h)
