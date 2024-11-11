@@ -10,8 +10,8 @@ using namespace std;
 
 int main(const int argc, const char **argv) {
 
-    string inputFileName, outputFileName, action;
-    FileSystem inputFile, outputFile;
+    string cliInput;
+    FileSystem file;
     Encoder encoder;
     vector<unsigned char> data;
 
@@ -21,23 +21,23 @@ int main(const int argc, const char **argv) {
     Out::printLn("Versuche, die mitgelieferte 'in.txt' zu encodieren.\n",FG_GREY);
 
     while (true) {
-        In::readLine(inputFileName, "Input-Datei angeben: ");
-        if(!inputFileName.empty() and inputFile.isReadable(inputFileName)) {
+        In::readLine(cliInput, "Input-Datei angeben: ");
+        if(!cliInput.empty() and file.isReadable(cliInput)) {
             Out::printLn("Datei gefunden!",FG_LIGHT_CYAN);
             Out::printLn("");
-            encoder.setData(inputFile.read());
+            encoder.setData(file.read());
             break;
         }
         Out::printLn("Datei nicht gefunden!",FG_LIGHT_RED);
     }
 
     while (true) {
-        In::readLine(action, "[d]ecodieren oder [e]ncodieren: ");
-        if(action == "e") {
+        In::readLine(cliInput, "[d]ecodieren oder [e]ncodieren: ");
+        if(cliInput == "e") {
             data = encoder.rleEncode();
             break;
         }
-        if(action == "d") {
+        if(cliInput == "d") {
             data = encoder.rleDecode();
             break;
         }
@@ -47,19 +47,19 @@ int main(const int argc, const char **argv) {
     Out::printLn("");
 
     while (true) {
-        In::readLine(outputFileName,  "Output-Datei angeben: ");
-        if(!outputFileName.empty() and outputFile.isWritable(outputFileName)) {
+        In::readLine(cliInput,  "Output-Datei angeben: ");
+        if(!cliInput.empty() and file.isWritable(cliInput)) {
             Out::printLn("Datei schreibbar!",FG_LIGHT_CYAN);
             Out::printLn("");
-            outputFile.write(data);
+            file.write(data);
             break;
         }
         Out::printLn("Datei nicht schreibbar!",FG_LIGHT_RED);
     }
     Out::print("Datei ");
-    Out::print(inputFileName, FG_LIGHT_CYAN);
+    Out::print(cliInput, FG_LIGHT_CYAN);
     Out::print(" wurde erfolgreich nach ");
-    Out::print(outputFileName, FG_LIGHT_CYAN);
+    Out::print(cliInput, FG_LIGHT_CYAN);
     Out::printLn(" konvertiert.");
 
     System::exit();
