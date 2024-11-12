@@ -20,6 +20,10 @@ int main(const int argc, const char **argv) {
 
     Out::printLn("Versuche, die mitgelieferte 'in.txt' zu encodieren.\n",FG_GREY);
 
+    // TODO: Input-Abfrage und Verarbeitung sind algorithmisch identisch und könnten mittels Closure-Implementierung
+    // sowie ausgelagerter while-Loop erledigt werden. Sowas wie "TerminalMenu": .addItem(), .run()
+
+    // I
     while (true) {
         In::readLine(cliInput, "Input-Datei angeben: ");
         if(!cliInput.empty() and file.isReadable(cliInput)) {
@@ -31,6 +35,7 @@ int main(const int argc, const char **argv) {
         Out::printLn("Datei nicht gefunden!",FG_LIGHT_RED);
     }
 
+    // II
     while (true) {
         In::readLine(cliInput, "[d]ecodieren oder [e]ncodieren: ");
         if(cliInput == "e") {
@@ -46,6 +51,7 @@ int main(const int argc, const char **argv) {
     Out::printLn("Daten erfolgreich konvertiert.", FG_LIGHT_CYAN);
     Out::printLn("");
 
+    // III
     while (true) {
         In::readLine(cliInput,  "Output-Datei angeben: ");
         if(!cliInput.empty() and file.isWritable(cliInput)) {
