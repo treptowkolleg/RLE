@@ -22,6 +22,7 @@ int main(const int argc, const char **argv) {
 
     // TODO: Input-Abfrage und Verarbeitung sind algorithmisch identisch und könnten mittels Closure-Implementierung
     // sowie ausgelagerter while-Loop erledigt werden. Sowas wie "TerminalMenu": .addItem(), .run()
+    // Beispiel: auto f = [&] () { // Aktion implementieren };
 
     // I
     while (true) {
