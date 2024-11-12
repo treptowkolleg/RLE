@@ -7,6 +7,7 @@
 
 
 TerminalMenuItem::TerminalMenuItem(const string& question, const function<bool(string input)>& action) {
+    // TODO: gehört in TerminalMenu::run();
     while (true) {
         string input;
         In::readLine(input, question + ": ");
