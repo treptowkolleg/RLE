@@ -85,6 +85,18 @@ build CMakeFiles/RLE.dir/src/System/System.cpp.obj: CXX_COMPILER__RLE_unscanned_
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src\System
 
+build CMakeFiles/RLE.dir/src/TUI/TerminalMenu.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/TUI/TerminalMenu.cpp || cmake_object_order_depends_target_RLE
+  DEP_FILE = CMakeFiles\RLE.dir\src\TUI\TerminalMenu.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\RLE.dir
+  OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src\TUI
+
+build CMakeFiles/RLE.dir/src/TUI/TerminalMenuItem.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/TUI/TerminalMenuItem.cpp || cmake_object_order_depends_target_RLE
+  DEP_FILE = CMakeFiles\RLE.dir\src\TUI\TerminalMenuItem.cpp.obj.d
+  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\RLE.dir
+  OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src\TUI
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target RLE
@@ -93,7 +105,7 @@ build CMakeFiles/RLE.dir/src/System/System.cpp.obj: CXX_COMPILER__RLE_unscanned_
 #############################################
 # Link the executable RLE.exe
 
-build RLE.exe: CXX_EXECUTABLE_LINKER__RLE_Debug CMakeFiles/RLE.dir/main.cpp.obj CMakeFiles/RLE.dir/src/Encoder.cpp.obj CMakeFiles/RLE.dir/src/FileSystem.cpp.obj CMakeFiles/RLE.dir/src/System/Out.cpp.obj CMakeFiles/RLE.dir/src/System/In.cpp.obj CMakeFiles/RLE.dir/src/System/System.cpp.obj
+build RLE.exe: CXX_EXECUTABLE_LINKER__RLE_Debug CMakeFiles/RLE.dir/main.cpp.obj CMakeFiles/RLE.dir/src/Encoder.cpp.obj CMakeFiles/RLE.dir/src/FileSystem.cpp.obj CMakeFiles/RLE.dir/src/System/Out.cpp.obj CMakeFiles/RLE.dir/src/System/In.cpp.obj CMakeFiles/RLE.dir/src/System/System.cpp.obj CMakeFiles/RLE.dir/src/TUI/TerminalMenu.cpp.obj CMakeFiles/RLE.dir/src/TUI/TerminalMenuItem.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\RLE.dir

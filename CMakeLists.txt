@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.2)
 project(RLE)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 20)
 
 add_executable(RLE main.cpp
         src/Encoder.h
@@ -15,4 +15,8 @@ add_executable(RLE main.cpp
         src/System/In.cpp
         src/System/In.h
         src/System/System.cpp
-        src/System/System.h)
+        src/System/System.h
+        src/TUI/TerminalMenu.cpp
+        src/TUI/TerminalMenu.h
+        src/TUI/TerminalMenuItem.cpp
+        src/TUI/TerminalMenuItem.h)
