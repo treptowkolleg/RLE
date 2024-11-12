@@ -4,10 +4,8 @@ project(RLE)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(RLE main.cpp
-        src/encoder.h
-        src/encoder.cpp
-        src/Filesystem.cpp
-        src/Filesystem.h
+        src/Encoder.h
+        src/Encoder.cpp
         src/FileSystem.cpp
         src/FileSystem.h
         lib/libusb.h
