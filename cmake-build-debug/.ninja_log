@@ -2,7 +2,7 @@
 5	353	7530972251272060	CMakeFiles/RLE.dir/main.cpp.obj	5a7cf8cabf2a0c35
 8	333	7526104285263101	CMakeFiles/RLE.dir/src/FileSystem.cpp.obj	258c85d3d037f1c7
 354	554	7530972254753613	RLE.exe	29dbd6b076e46d9
-3	283	7531302228018821	build.ninja	9f8cb375cb4189db
+3	283	7531846764170262	build.ninja	9f8cb375cb4189db
 8	190	7526167688324050	CMakeFiles/RLE.dir/src/Encoder.cpp.obj	6b435003f6cca9c1
 4	227	7524182025868697	CMakeFiles/RLE.dir/src/encoding.cpp.obj	3765b7682c6d75c0
 4	191	7524593968758084	CMakeFiles/RLE.dir/src/encoder.cpp.obj	64c165f3cd2afcd9

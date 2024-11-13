@@ -51,49 +51,49 @@ build cmake_object_order_depends_target_RLE: phony || .
 
 build CMakeFiles/RLE.dir/main.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/main.cpp || cmake_object_order_depends_target_RLE
   DEP_FILE = CMakeFiles\RLE.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir
 
 build CMakeFiles/RLE.dir/src/Encoder.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/Encoder.cpp || cmake_object_order_depends_target_RLE
   DEP_FILE = CMakeFiles\RLE.dir\src\Encoder.cpp.obj.d
-  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src
 
 build CMakeFiles/RLE.dir/src/FileSystem.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/FileSystem.cpp || cmake_object_order_depends_target_RLE
   DEP_FILE = CMakeFiles\RLE.dir\src\FileSystem.cpp.obj.d
-  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src
 
 build CMakeFiles/RLE.dir/src/System/Out.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/System/Out.cpp || cmake_object_order_depends_target_RLE
   DEP_FILE = CMakeFiles\RLE.dir\src\System\Out.cpp.obj.d
-  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src\System
 
 build CMakeFiles/RLE.dir/src/System/In.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/System/In.cpp || cmake_object_order_depends_target_RLE
   DEP_FILE = CMakeFiles\RLE.dir\src\System\In.cpp.obj.d
-  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src\System
 
 build CMakeFiles/RLE.dir/src/System/System.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/System/System.cpp || cmake_object_order_depends_target_RLE
   DEP_FILE = CMakeFiles\RLE.dir\src\System\System.cpp.obj.d
-  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src\System
 
 build CMakeFiles/RLE.dir/src/TUI/TerminalMenu.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/TUI/TerminalMenu.cpp || cmake_object_order_depends_target_RLE
   DEP_FILE = CMakeFiles\RLE.dir\src\TUI\TerminalMenu.cpp.obj.d
-  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src\TUI
 
 build CMakeFiles/RLE.dir/src/TUI/TerminalMenuItem.cpp.obj: CXX_COMPILER__RLE_unscanned_Debug C$:/Users/BenjaminWagner/CLionProjects/gpa1/src/TUI/TerminalMenuItem.cpp || cmake_object_order_depends_target_RLE
   DEP_FILE = CMakeFiles\RLE.dir\src\TUI\TerminalMenuItem.cpp.obj.d
-  FLAGS = -g -std=gnu++11 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\RLE.dir
   OBJECT_FILE_DIR = CMakeFiles\RLE.dir\src\TUI
 
