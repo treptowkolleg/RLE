@@ -9,3 +9,16 @@
 11	186	7526104285293621	CMakeFiles/RLE.dir/src/System/Out.cpp.obj	7d76e3b1ea5bfc55
 13	326	7526104285313625	CMakeFiles/RLE.dir/src/System/In.cpp.obj	d46369290b7a0958
 8	256	7526104535758976	CMakeFiles/RLE.dir/src/System/System.cpp.obj	9c851d1fea45f24d
+8	474	7531848222273200	CMakeFiles/RLE.dir/src/Encoder.cpp.obj	2d902d7fad7d8154
+14	487	7531848222343730	CMakeFiles/RLE.dir/src/System/Out.cpp.obj	87d4c6120854733d
+26	527	7531848222465071	CMakeFiles/RLE.dir/src/TUI/TerminalMenu.cpp.obj	3211975a4f670d9e
+30	604	7531848222495724	CMakeFiles/RLE.dir/src/TUI/TerminalMenuItem.cpp.obj	a92f98fde24e7f7
+4	622	7531848222232336	CMakeFiles/RLE.dir/main.cpp.obj	55fc3504483a66ec
+11	833	7531848222303185	CMakeFiles/RLE.dir/src/FileSystem.cpp.obj	d733522738bbb04d
+19	842	7531848222384529	CMakeFiles/RLE.dir/src/System/In.cpp.obj	596aaa980619db38
+22	974	7531848222425065	CMakeFiles/RLE.dir/src/System/System.cpp.obj	363c989e33735e1a
+974	1187	7531848231932711	RLE.exe	7fab5b7421da23ae
+4	284	7531849148864968	CMakeFiles/RLE.dir/src/Encoder.cpp.obj	2d902d7fad7d8154
+284	401	7531849151671357	RLE.exe	7fab5b7421da23ae
+4	297	7531850648209247	CMakeFiles/RLE.dir/src/Encoder.cpp.obj	2d902d7fad7d8154
+298	422	7531850651252997	RLE.exe	7fab5b7421da23ae

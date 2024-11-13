@@ -28,9 +28,9 @@ vector<unsigned char> Encoder::rleEncode() const {
     vector<unsigned char> encoded;
 
 
-    for (size_t i = 0; i < buffer.size(); ) {
+    for (int i = 0; i < buffer.size(); ) {
         unsigned char current_byte = buffer[i];
-        size_t count = 1;
+        int count = 1;
 
         // Zähle die Anzahl der aufeinanderfolgenden gleichen Bytes
         while (i + 1 < buffer.size() && buffer[i + 1] == current_byte) {
@@ -43,7 +43,7 @@ vector<unsigned char> Encoder::rleEncode() const {
 
         // Füge das aktuelle Byte und die Anzahl hinzu
         encoded.push_back(current_byte);
-        encoded.push_back(static_cast<unsigned char>(count));
+        encoded.push_back(count);
         i++;
     }
 
@@ -57,9 +57,9 @@ vector<unsigned char> Encoder::rleEncode() const {
 vector<unsigned char> Encoder::rleDecode() const {
     vector<unsigned char> decoded;
 
-    for (size_t i = 0; i < buffer.size(); i += 2) {
+    for (int i = 0; i < buffer.size(); i += 2) {
         unsigned char byte_value = buffer[i];           // Das aktuelle Byte
-        const unsigned char count = buffer[i + 1];      // Die Anzahl der Wiederholungen
+        const int count = buffer[i + 1];      // Die Anzahl der Wiederholungen
 
         // Füge das Byte 'count' mal zu den dekodierten Daten hinzu
         decoded.insert(decoded.end(), count, byte_value);
