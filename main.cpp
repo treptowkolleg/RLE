@@ -5,7 +5,6 @@
 #include "src/System/In.h"
 #include "src/System/Out.h"
 #include "src/System/System.h"
-#include "src/TUI/TerminalMenuItem.h"
 
 using namespace std;
 
@@ -29,8 +28,7 @@ int main(const int argc, const char **argv) {
     while (true) {
         In::readLine(cliInput, "Input-Datei angeben: ");
         if(!cliInput.empty() and file.isReadable(cliInput)) {
-            Out::printLn("Datei gefunden!",FG_LIGHT_CYAN);
-            Out::printLn("");
+            Out::printLn("Datei gefunden!\n",FG_LIGHT_CYAN);
             encoder.setData(file.read());
             break;
         }
@@ -42,33 +40,29 @@ int main(const int argc, const char **argv) {
         In::readLine(cliInput, "[d]ecodieren oder [e]ncodieren: ");
         if(cliInput == "e") {
             data = encoder.rleEncode();
+            Out::printLn("Daten erfolgreich encodiert.\n", FG_LIGHT_CYAN);
             break;
         }
         if(cliInput == "d") {
             data = encoder.rleDecode();
+            Out::printLn("Daten erfolgreich decodiert.\n", FG_LIGHT_CYAN);
             break;
         }
         Out::printLn("Bitte [d] oder [e] angeben.", FG_LIGHT_RED);
     }
-    Out::printLn("Daten erfolgreich konvertiert.", FG_LIGHT_CYAN);
-    Out::printLn("");
 
     // III
     while (true) {
         In::readLine(cliInput,  "Output-Datei angeben: ");
         if(!cliInput.empty() and file.isWritable(cliInput)) {
-            Out::printLn("Datei schreibbar!",FG_LIGHT_CYAN);
-            Out::printLn("");
             file.write(data);
+            Out::print("Datei wurde erfolgreich nach ");
+            Out::print(cliInput, FG_LIGHT_CYAN);
+            Out::printLn(" konvertiert.\n");
             break;
         }
         Out::printLn("Datei nicht schreibbar!",FG_LIGHT_RED);
     }
-    Out::print("Datei ");
-    Out::print(cliInput, FG_LIGHT_CYAN);
-    Out::print(" wurde erfolgreich nach ");
-    Out::print(cliInput, FG_LIGHT_CYAN);
-    Out::printLn(" konvertiert.");
 
     System::exit();
 }
