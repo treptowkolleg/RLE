@@ -47,3 +47,7 @@ void Out::hideCursor() {
 string Out::setColor(const Color& color) {
     return  "\033[" + color + "m";
 }
+
+void Out::blink() {
+    printf("\033[5m\033[0m");
+}

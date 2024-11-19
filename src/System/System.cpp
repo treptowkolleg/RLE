@@ -16,7 +16,7 @@ bool System::hasToken(const string &token) {
 }
 
 void System::exit(const int &code) {
-    Out::hideCursor();
+    //Out::hideCursor();
     Out::print("Programm wird beendet ");
     int i = 20;
     while (i > 0) {
@@ -24,5 +24,6 @@ void System::exit(const int &code) {
         Out::print(".");
         i--;
     }
+    Out::printLn("");
     std::exit(code);
 }
