@@ -4,7 +4,6 @@
 #include "src/System/Color.h"
 #include "src/System/In.h"
 #include "src/System/Out.h"
-#include "src/System/System.h"
 #include "src/TUI/TerminalMenu.h"
 #include "src/TUI/TerminalMenuItem.h"
 
