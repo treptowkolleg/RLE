@@ -10,9 +10,17 @@
 using namespace std;
 
 class TerminalMenuItem {
+
+    string question;
+    function<bool()> action;
     public:
-    // TODO: Nachfragen, wie Closures als Argument übergeben werden können.
-    TerminalMenuItem(const string &question, const function<bool(string input)> &action);
+
+    TerminalMenuItem(const string &question, const function<bool()> &action);
+
+    string getQuestion();
+
+    function<bool()> getAction();
+
 };
 
 #endif //TERMINALMENUITEM_H

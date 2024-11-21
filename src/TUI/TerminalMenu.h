@@ -12,12 +12,13 @@ using namespace std;
 
 class TerminalMenu {
 
-    vector<TerminalMenuItem> $items;
+    vector<TerminalMenuItem> items;
 
 public:
     TerminalMenu() = default;
-    explicit TerminalMenu(vector<TerminalMenuItem> $items);
-    TerminalMenu addItem(TerminalMenuItem item);
+    explicit TerminalMenu(const vector<TerminalMenuItem>& $items);
+    void addItem(const TerminalMenuItem &item);
+    void addItem(const string &question, const function<bool()> &action);
     void run();
 };
 

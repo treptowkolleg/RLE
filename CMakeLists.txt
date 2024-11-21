@@ -19,4 +19,5 @@ add_executable(RLE main.cpp
         src/TUI/TerminalMenu.cpp
         src/TUI/TerminalMenu.h
         src/TUI/TerminalMenuItem.cpp
-        src/TUI/TerminalMenuItem.h)
+        src/TUI/TerminalMenuItem.h
+        Main.h)

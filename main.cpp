@@ -5,65 +5,61 @@
 #include "src/System/In.h"
 #include "src/System/Out.h"
 #include "src/System/System.h"
+#include "src/TUI/TerminalMenu.h"
+#include "src/TUI/TerminalMenuItem.h"
 
 using namespace std;
 
+
 int main(const int argc, const char **argv) {
 
-    string cliInput;
-    FileSystem file;
-    Encoder encoder;
-    vector<unsigned char> data;
+    static FileSystem file;
+    static Encoder encoder;
+    static vector<unsigned char> data;
+    TerminalMenu terminalMenu;
 
     Out::clear();
     Out::printHeading("RLE-Konverter");
 
     Out::printLn("Versuche, die mitgelieferte 'in.txt' zu encodieren.\n",FG_GREY);
 
-    // TODO: Input-Abfrage und Verarbeitung sind algorithmisch identisch und könnten mittels Closure-Implementierung
-    // sowie ausgelagerter while-Loop erledigt werden. Sowas wie "TerminalMenu": .addItem(), .run()
-    // Beispiel: auto f = [&] () { // Aktion implementieren };
-
-    // I
-    while (true) {
-        In::readLine(cliInput, "Input-Datei angeben: ");
-        if(!cliInput.empty() and file.isReadable(cliInput)) {
+    terminalMenu.addItem("Input-Datei angeben: ", [] {
+        if(!In::input.empty() and file.isReadable(In::input)) {
             Out::printLn("Datei gefunden!\n",FG_LIGHT_CYAN);
             encoder.setData(file.read());
-            break;
+            return true;
         }
         Out::printLn("Datei nicht gefunden!",FG_LIGHT_RED);
-    }
+        return false;
+    });
 
-    // II
-    while (true) {
-        In::readLine(cliInput, "[d]ecodieren oder [e]ncodieren: ");
-        if(cliInput == "e") {
+    terminalMenu.addItem("[d]ecodieren oder [e]ncodieren: ", [] {
+        if(In::input == "e") {
             data = encoder.rleEncode();
             Out::printLn("Daten erfolgreich encodiert.\n", FG_LIGHT_CYAN);
-            break;
+            return true;
         }
-        if(cliInput == "d") {
+        if(In::input == "d") {
             data = encoder.rleDecode();
             Out::printLn("Daten erfolgreich decodiert.\n", FG_LIGHT_CYAN);
-            break;
+            return true;
         }
         Out::printLn("Bitte [d] oder [e] angeben.", FG_LIGHT_RED);
-    }
+        return false;
+    });
 
-    // III
-    while (true) {
-        In::readLine(cliInput,  "Output-Datei angeben: ");
-        if(!cliInput.empty() and file.isWritable(cliInput)) {
+    terminalMenu.addItem("Output-Datei angeben: ", [] {
+        if(!In::input.empty() and file.isWritable(In::input)) {
             file.write(data);
             Out::print("Datei wurde erfolgreich nach ");
-            Out::print(cliInput, FG_LIGHT_CYAN);
+            Out::print(In::input, FG_LIGHT_CYAN);
             Out::printLn(" konvertiert.\n");
-            break;
+            return true;
         }
         Out::printLn("Datei nicht schreibbar!",FG_LIGHT_RED);
-    }
+        return false;
+    });
 
-    System::exit();
+    terminalMenu.run();
 }
 

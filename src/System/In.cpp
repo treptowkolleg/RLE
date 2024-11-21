@@ -16,3 +16,7 @@ void In::readLine(string &target, const string &text) {
     cout << Out::setColor(FG_WHITE);
     if(System system; system.hasToken(target)) System::exit();
 }
+
+string &In::getInput() {
+    return input;
+}

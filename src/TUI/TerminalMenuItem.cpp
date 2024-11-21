@@ -6,12 +6,15 @@
 #include "../System/In.h"
 
 
-TerminalMenuItem::TerminalMenuItem(const string& question, const function<bool(string input)>& action) {
-    // TODO: gehört in TerminalMenu::run();
-    while (true) {
-        string input;
-        In::readLine(input, question + ": ");
-        if(action(input))
-            return;
-    }
+TerminalMenuItem::TerminalMenuItem(const string& question, const function<bool()>& action) {
+    this->question = question;
+    this->action = action;
+}
+
+string TerminalMenuItem::getQuestion() {
+    return question;
+}
+
+function<bool()> TerminalMenuItem::getAction() {
+    return action;
 }

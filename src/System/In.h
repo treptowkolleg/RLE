@@ -12,6 +12,9 @@ class In {
 
     public:
     static void readLine(string &target, const string &text = "Eingabe: ");
+    static string &getInput();
+
+    static inline string input;
 };
 
 
